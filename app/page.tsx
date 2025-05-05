@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import React from 'react';
+import Image from 'next/image';
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -100,9 +102,7 @@ export default function Home() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
               </span>
             </Link>
-            <button className="bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 px-5 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg shadow-pink-600/30">
-              Sign In
-            </button>
+
           </nav>
           
           <div className="md:hidden">
@@ -123,40 +123,52 @@ export default function Home() {
             <Link href="/channels" className="py-2 hover:text-pink-400 transition-colors">Channel List</Link>
             <Link href="/reseller" className="py-2 hover:text-pink-400 transition-colors">Reseller</Link>
             <Link href="/setup" className="py-2 hover:text-pink-400 transition-colors">Setup Guide</Link>
-            <button className="bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 py-2 rounded-full font-medium transition-all shadow-lg shadow-pink-600/30">
-              Sign In
-            </button>
+
           </div>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section ref={heroRef} className="relative pt-32 md:pt-40 pb-20 z-10 overflow-hidden">
-        <div className="container mx-auto px-4 text-center">
-          <div className="relative">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 delay-300">
-              Ultimate
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500"> Streaming </span>
-              Experience
-            </h1>
-            <div className="absolute -top-16 -right-16 w-32 h-32 bg-pink-500 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
-            <div className="absolute -bottom-16 -left-16 w-32 h-32 bg-purple-500 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
-          </div>
-          
-          <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 delay-500">
-            Instant access to <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">23,000+</span> live channels and <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">140,000+</span> movies & shows worldwide
-          </p>
-          
-          <div className="flex flex-col md:flex-row justify-center items-center gap-4 animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 delay-700">
-            <button className="relative bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-bold py-4 px-10 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg shadow-pink-600/30 group overflow-hidden">
-              <span className="relative z-10">Get Started Now</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
-            </button>
-            
-            <button className="relative bg-transparent border border-white/30 backdrop-blur-sm hover:border-white/60 text-white font-bold py-4 px-10 rounded-full text-lg transition-all">
-              View Plans
-            </button>
-          </div>
+{/* Hero Section */}
+<section
+  ref={heroRef}
+  className="relative pt-44 sm:pt-32 md:pt-40 pb-16 sm:pb-20 z-10 overflow-hidden"
+>
+  <div className="container mx-auto px-2 text-center">
+    <div className="relative">
+      <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 delay-300">
+        Ultimate
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">
+          {' '}
+          Streaming{' '}
+        </span>
+        Experience
+      </h1>
+      <div className="absolute -top-12 -right-12 w-20 h-20 sm:w-32 sm:h-32 bg-pink-500 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+      <div className="absolute -bottom-12 -left-12 w-20 h-20 sm:w-32 sm:h-32 bg-purple-500 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+    </div>
+
+    <p className="text-lg sm:text-xl md:text-2xl mb-10 max-w-3xl mx-auto animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 delay-500">
+      Instant access to{' '}
+      <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">
+        23,000+
+      </span>{' '}
+      live channels and{' '}
+      <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">
+        140,000+
+      </span>{' '}
+      movies & shows worldwide
+    </p>
+
+    <div className="flex flex-col md:flex-row justify-center items-center gap-4 animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 delay-700">
+      <button className="relative bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-bold py-3 px-6 sm:py-4 sm:px-10 rounded-full text-base sm:text-lg transition-all transform hover:scale-105 shadow-lg shadow-pink-600/30 group overflow-hidden">
+        <span className="relative z-10">Get Started Now</span>
+        <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+      </button>
+
+      <button className="relative bg-transparent border border-white/30 backdrop-blur-sm hover:border-white/60 text-white font-bold py-3 px-6 sm:py-4 sm:px-10 rounded-full text-base sm:text-lg transition-all">
+        View Plans
+      </button>
+    </div>
           
           {/* Floating devices mockup */}
           <div className="relative mt-16 md:mt-24 h-64 md:h-96 animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 delay-900">
@@ -192,22 +204,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Feature Banner */}
-      <section className="relative z-10 py-8 overflow-hidden backdrop-blur-sm bg-gradient-to-r from-purple-900/30 to-pink-900/30">
-        <div className="animate-scroll">
-          {Array(15).fill('').map((_, i) => (
-            <div key={i} className="inline-flex items-center mx-4">
-              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500"></div>
-              <span className="mx-3 text-lg font-medium">
-                {[
-                  "4K Ultra HD", "No Buffering", "23,000+ Channels", "Sports & PPV Events", 
-                  "140,000+ Movies & Shows", "24/7 Support", "Regular Updates", "Multi-Device"
-                ][i % 8]}
-              </span>
+      {/* Brand Logo Banner (infinite loop) */}
+      <section className="relative overflow-hidden py-2 bg-gradient-to-r from-purple-100/30 to-pink-500/30 backdrop-blur-sm">
+        {/* Inner track is 200% width: two strips of logos */}
+        <div className="flex w-[200%] animate-scroll">
+          {[...Array(2)].map((_, strip) => (
+            <div key={strip} className="flex flex-shrink-0 gap-10">
+              {Array.from({ length: 15 }).map((_, i) => (
+                <div key={i} className="flex items-center justify-center mx-4">
+                  <img
+                    src={`/logos/${(i % 23) + 1}.webp`}
+                    alt={`Logo ${(i % 23) + 1}`}
+                  />
+                </div>
+              ))}
             </div>
           ))}
         </div>
       </section>
+
+
+
+
 
       {/* Plans Section */}
       <section className="relative z-10 py-20 bg-gradient-to-b from-transparent to-black/40">
@@ -220,7 +238,108 @@ export default function Home() {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* 1 Month Plan */}
+
+
+            {/* 1 Years Plan */}
+            <div className="bg-gradient-to-br from-gray-900/70 to-purple-950/70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg shadow-purple-900/20 transform transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-pink-800/20 animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 delay-600">
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2">1 Years</h3>
+                <div className="flex items-end mb-4">
+                  <span className="text-4xl font-bold">$49</span>
+                  <span className="text-gray-400 ml-1">/years</span>
+                </div>
+                <div className="w-full h-px bg-gradient-to-r from-transparent via-pink-500 to-transparent my-4"></div>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-center">
+                    <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
+                    23,000+ Live Channels
+                  </li>
+                  <li className="flex items-center">
+                    <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
+                    140K+ Movies & Series
+                  </li>
+                  <li className="flex items-center">
+                    <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
+                    4K/UHD/HD Quality
+                  </li>
+                </ul>
+                <button className="w-full relative overflow-hidden group bg-gray-800 hover:bg-gradient-to-r from-pink-600 to-purple-600 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300">
+                  <span className="relative z-10">Buy Now</span>
+                </button>
+              </div>
+            </div>
+
+{/* 2 Year Plan */}
+<div className="bg-gradient-to-br from-gray-800/90 to-pink-950/90 backdrop-blur-sm rounded-2xl overflow-visible shadow-xl shadow-pink-900/30 transform transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-pink-800/40 relative z-10 animate-on-scroll opacity-0 translate-y-8 delay-500">
+  {/* BEST DEAL badge */}
+  <div className="absolute -top-4 right-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold py-1 px-6 rounded-full text-sm shadow-lg transform rotate-2 z-50">
+    BEST DEAL
+  </div>
+
+  {/* Decorative glow */}
+
+  <div className="p-6">
+    <h3 className="text-xl font-bold mb-2">2 Year</h3>
+    <div className="flex items-end mb-4">
+      <span className="text-4xl font-bold">$79</span>
+      <span className="text-gray-400 ml-1">/year</span>
+    </div>
+    <div className="w-full h-px bg-gradient-to-r from-transparent via-pink-500 to-transparent my-4"></div>
+    <ul className="space-y-3 mb-6">
+      <li className="flex items-center">
+        <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
+        23,000+ Live Channels
+      </li>
+      <li className="flex items-center">
+        <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
+        140K+ Movies & Series
+      </li>
+      <li className="flex items-center">
+        <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
+        4K/UHD/HD Quality
+      </li>
+      <li className="flex items-center">
+        <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
+        Priority Support
+      </li>
+    </ul>
+    <button className="w-full relative overflow-hidden group bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-pink-600/30">
+      <span className="relative z-10">Buy Now</span>
+    </button>
+  </div>
+</div>
+
+
+
+                        {/* 6 Month Plan */}
+                        <div className="bg-gradient-to-br from-gray-900/70 to-purple-950/70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg shadow-purple-900/20 transform transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-pink-800/20 animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 delay-400">
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2">6 Months</h3>
+                <div className="flex items-end mb-4">
+                  <span className="text-4xl font-bold">$29</span>
+                  <span className="text-gray-400 ml-1">/6 months</span>
+                </div>
+                <div className="w-full h-px bg-gradient-to-r from-transparent via-pink-500 to-transparent my-4"></div>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-center">
+                    <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
+                    23,000+ Live Channels
+                  </li>
+                  <li className="flex items-center">
+                    <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
+                    140K+ Movies & Series
+                  </li>
+                  <li className="flex items-center">
+                    <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
+                    4K/UHD/HD Quality
+                  </li>
+                </ul>
+                <button className="w-full relative overflow-hidden group bg-gray-800 hover:bg-gradient-to-r from-pink-600 to-purple-600 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300">
+                  <span className="relative z-10">Buy Now</span>
+                </button>
+              </div>
+            </div>
+                        {/* 1 Month Plan */}
             <div className="bg-gradient-to-br from-gray-900/70 to-purple-950/70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg shadow-purple-900/20 transform transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-pink-800/20 animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 delay-300">
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">1 Month</h3>
@@ -248,105 +367,9 @@ export default function Home() {
                 </button>
               </div>
             </div>
-
-            {/* 6 Month Plan */}
-            <div className="bg-gradient-to-br from-gray-900/70 to-purple-950/70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg shadow-purple-900/20 transform transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-pink-800/20 animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 delay-400">
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">6 Months</h3>
-                <div className="flex items-end mb-4">
-                  <span className="text-4xl font-bold">$29</span>
-                  <span className="text-gray-400 ml-1">/6 months</span>
-                </div>
-                <div className="w-full h-px bg-gradient-to-r from-transparent via-pink-500 to-transparent my-4"></div>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-center">
-                    <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
-                    23,000+ Live Channels
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
-                    140K+ Movies & Series
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
-                    4K/UHD/HD Quality
-                  </li>
-                </ul>
-                <button className="w-full relative overflow-hidden group bg-gray-800 hover:bg-gradient-to-r from-pink-600 to-purple-600 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300">
-                  <span className="relative z-10">Buy Now</span>
-                </button>
-              </div>
-            </div>
-
-            {/* 1 Year Plan */}
-            <div className="bg-gradient-to-br from-gray-800/90 to-pink-950/90 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl shadow-pink-900/30 transform transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-pink-800/40 relative animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 delay-500">
-              <div className="absolute -top-4 right-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold py-1 px-6 rounded-full text-sm shadow-lg transform rotate-2">
-                BEST DEAL
-              </div>
-              <div className="absolute -right-12 -top-12 w-24 h-24 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full opacity-30 blur-xl"></div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">1 Year</h3>
-                <div className="flex items-end mb-4">
-                  <span className="text-4xl font-bold">$49</span>
-                  <span className="text-gray-400 ml-1">/year</span>
-                </div>
-                <div className="w-full h-px bg-gradient-to-r from-transparent via-pink-500 to-transparent my-4"></div>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-center">
-                    <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
-                    23,000+ Live Channels
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
-                    140K+ Movies & Series
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
-                    4K/UHD/HD Quality
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
-                    Priority Support
-                  </li>
-                </ul>
-                <button className="w-full relative overflow-hidden group bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-pink-600/30">
-                  <span className="relative z-10">Buy Now</span>
-                </button>
-              </div>
-            </div>
-
-            {/* 2 Years Plan */}
-            <div className="bg-gradient-to-br from-gray-900/70 to-purple-950/70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg shadow-purple-900/20 transform transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-pink-800/20 animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 delay-600">
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">2 Years</h3>
-                <div className="flex items-end mb-4">
-                  <span className="text-4xl font-bold">$79</span>
-                  <span className="text-gray-400 ml-1">/2 years</span>
-                </div>
-                <div className="w-full h-px bg-gradient-to-r from-transparent via-pink-500 to-transparent my-4"></div>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-center">
-                    <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
-                    23,000+ Live Channels
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
-                    140K+ Movies & Series
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-5 h-5 mr-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-xs">✓</span>
-                    4K/UHD/HD Quality
-                  </li>
-                </ul>
-                <button className="w-full relative overflow-hidden group bg-gray-800 hover:bg-gradient-to-r from-pink-600 to-purple-600 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300">
-                  <span className="relative z-10">Buy Now</span>
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </section>
-
       {/* Features Section */}
       <section className="relative z-10 py-20">
         <div className="container mx-auto px-4">
@@ -401,62 +424,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Content Showcase */}
-      <section className="relative z-10 py-16 bg-gradient-to-b from-black/30 via-purple-950/20 to-black/30">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">Explore Our Library</span>
-          </h2>
-          
-          <div className="relative">
-            {/* Content carousel */}
-            <div className="overflow-hidden py-8">
-              <div className="flex space-x-6 animate-carousel">
-                {Array(8).fill('').map((_, i) => (
-                  <div key={i} className="flex-shrink-0 w-48 h-64 rounded-xl overflow-hidden shadow-lg shadow-purple-900/20 transform transition-all hover:scale-105 relative group">
-                    <div className="absolute inset-0 bg-gradient-to-b from-pink-600/80 via-purple-600/80 to-indigo-800/80 opacity-60 group-hover:opacity-80 transition-opacity"></div>
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <p className="font-bold text-lg">Featured Content {i+1}</p>
-                      <p className="text-sm text-gray-300">Premium Entertainment</p>
-                    </div>
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Second carousel - opposite direction */}
-            <div className="overflow-hidden py-8">
-              <div className="flex space-x-6 animate-carousel-reverse">
-                {Array(8).fill('').map((_, i) => (
-                  <div key={i} className="flex-shrink-0 w-48 h-32 rounded-xl overflow-hidden shadow-lg shadow-purple-900/20 transform transition-all hover:scale-105 relative group">
-                    <div className="absolute inset-0 bg-gradient-to-b from-indigo-600/80 via-purple-600/80 to-pink-800/80 opacity-60 group-hover:opacity-80 transition-opacity"></div>
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <p className="font-bold">Channel {i+1}</p>
-                      <p className="text-xs text-gray-300">Live TV</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
       {/* Sports Section */}
       <section className="relative z-10 py-20 bg-gradient-to-b from-black/30 to-indigo-950/30 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           {/* Sports background elements */}
           <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-pink-600 rounded-full filter blur-3xl opacity-30 animate-pulse-slow"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-purple-600 rounded-full filter blur-3xl opacity-20 animate-pulse-slow animation-delay-2000"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-purple-600 rounded-full filter blur-3xl opacity-20 animate-pulse-slow animation-delay-200"></div>
         </div>
       
         <div className="container mx-auto px-4 text-center relative">
@@ -468,8 +442,8 @@ export default function Home() {
           </p>
           
           <div className="relative py-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 delay-300">
-          {['NFL', 'NBA', 'NHL', 'MLB', 'Football', 'F1', 'UFC', 'Golf', 'Tennis', 'Cricket', 'Rugby', 'Boxing'].map(sport => (
-            <div key={sport} className="group">
+            {['NFL', 'NBA', 'NHL', 'MLB', 'Football', 'F1', 'UFC', 'Golf', 'Tennis', 'Cricket', 'Rugby', 'Boxing'].map((sport, i) => (
+              <div key={sport} className="group">
                 <div className="relative bg-gradient-to-br from-gray-900/80 to-purple-950/80 backdrop-blur-sm p-4 rounded-xl shadow-lg shadow-purple-900/20 transform transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-pink-800/30">
                   <div className="absolute inset-0 bg-gradient-to-br from-pink-600/0 to-purple-600/0 rounded-xl group-hover:from-pink-600/30 group-hover:to-purple-600/30 transition-all duration-500"></div>
                   <div className="font-bold text-lg relative">
@@ -486,52 +460,7 @@ export default function Home() {
           </button>
         </div>
       </section>
-
-      {/* Testimonials */}
-      <section className="relative z-10 py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-4 animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">Customer Feedback</span>
-          </h2>
-          <p className="text-center text-lg text-gray-300 mb-12 max-w-2xl mx-auto animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 delay-200">
-            See what our subscribers have to say about our service
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { name: "Alex M.", text: "Best streaming service I've used. No buffering issues, incredible channel selection, and the 4K quality is outstanding!" },
-              { name: "Sarah K.", text: "The sports package is unbeatable. I never miss any games now, and the picture quality is crystal clear even during fast-paced action." },
-              { name: "David R.", text: "Setup was incredibly easy on all my devices. Customer support is responsive and helpful whenever I need assistance." }
-            ].map((testimonial, i) => (
-              <div key={i} className="bg-gradient-to-br from-gray-900/60 to-purple-950/60 backdrop-blur-sm p-6 rounded-2xl relative group transform transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-pink-800/20 animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000" style={{ transitionDelay: `${300 + i * 100}ms` }}>
-                <div className="absolute top-0 right-0 -mt-4 -mr-4 w-8 h-8 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center text-white shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M6.29 18.7a1 1 0 01-1.58-.12L1 12l3.71-6.58a1 1 0 011.58-.12l1.42 1.58a1 1 0 01.07 1.32L6 11h5V7a1 1 0 011-1h2a1 1 0 011 1v10a1 1 0 01-1 1h-2a1 1 0 01-1-1v-4H6l1.78 2.8a1 1 0 01-.07 1.32l-1.42 1.58z"/>
-                  </svg>
-                </div>
-                <div className="mb-6">
-                  {Array(5).fill('').map((_, i) => (
-                    <svg key={i} className="inline-block h-5 w-5 text-pink-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-gray-300 mb-6">{testimonial.text}</p>
-                <div className="flex items-center">
-                  <div className="h-12 w-12 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 mr-4 flex items-center justify-center font-bold text-lg">
-                    {testimonial.name.charAt(0)}
-                  </div>
-                  <div>
-                    <h4 className="font-bold">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-400">Verified Customer</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      
       {/* FAQ Section */}
       <section className="relative z-10 py-20 bg-gradient-to-b from-black/30 to-indigo-950/30">
         <div className="container mx-auto px-4">
@@ -571,7 +500,7 @@ export default function Home() {
       <section className="relative z-10 py-24 bg-gradient-to-r from-pink-950/40 to-purple-950/40 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-pink-600 rounded-full filter blur-3xl opacity-20 animate-pulse-slow"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-600 rounded-full filter blur-3xl opacity-20 animate-pulse-slow animation-delay-2000"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-600 rounded-full filter blur-3xl opacity-20 animate-pulse-slow animation-delay-200"></div>
         </div>
         
         <div className="container mx-auto px-4 text-center relative">
@@ -648,5 +577,4 @@ export default function Home() {
       </footer>
     </div>
   );
-  
 }
