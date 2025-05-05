@@ -2,8 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import React from 'react';
-import Image from 'next/image';
+import React from 'react'
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -442,7 +441,7 @@ export default function Home() {
           </p>
           
           <div className="relative py-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 animate-on-scroll opacity-0 transform translate-y-8 transition-all duration-1000 delay-300">
-            {['NFL', 'NBA', 'NHL', 'MLB', 'Football', 'F1', 'UFC', 'Golf', 'Tennis', 'Cricket', 'Rugby', 'Boxing'].map((sport, i) => (
+            {['NFL', 'NBA', 'NHL', 'MLB', 'Football', 'F1', 'UFC', 'Golf', 'Tennis', 'Cricket', 'Rugby', 'Boxing'].map((sport) => (
               <div key={sport} className="group">
                 <div className="relative bg-gradient-to-br from-gray-900/80 to-purple-950/80 backdrop-blur-sm p-4 rounded-xl shadow-lg shadow-purple-900/20 transform transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-pink-800/30">
                   <div className="absolute inset-0 bg-gradient-to-br from-pink-600/0 to-purple-600/0 rounded-xl group-hover:from-pink-600/30 group-hover:to-purple-600/30 transition-all duration-500"></div>
